@@ -1,12 +1,14 @@
+@import '../styles/globals.scss';
+
 :root {
-  --background: #ffffff;
+  --background: #f8ed82; /* Light yellow background */
   --foreground: #171717;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #f9a825; /* Darker yellow for dark mode */
+    --foreground: #171717;
   }
 }
 
@@ -24,6 +26,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Yellow theme styling */
+.yellow-theme {
+  background-color: #f8ed82;
+}
+
+/* Additional class for main content area with yellow background */
+.main {
+  background-color: #f8ed82; /* Very light yellow for content areas */
+  /*background-color: #ffffff; /* Very light yellow for content areas */
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -38,5 +53,13 @@ a {
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
+  }
+  
+  .yellow-theme {
+    background-color: #f8ed82;
+  }
+  
+  .main {
+    background-color: #f57f17; /* Darker yellow for main content in dark mode */
   }
 }

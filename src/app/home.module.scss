@@ -1,0 +1,54 @@
+@use '../styles/variables' as vars;
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 vars.$spacing-4;
+}
+
+.title {
+  font-size: vars.$font-size-4xl;
+  font-weight: 700;
+  margin-bottom: vars.$spacing-8;
+  color: vars.$text-color;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: vars.$spacing-6;
+  
+  @media (min-width: vars.$md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media (min-width: vars.$lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  padding: vars.$spacing-6;
+  border: 1px solid vars.$border-color;
+  border-radius: vars.$border-radius-lg;
+  box-shadow: vars.$shadow;
+  transition: vars.$transition-base;
+  background-color: vars.$white;
+  
+  &:hover {
+    box-shadow: vars.$shadow-lg;
+    transform: translateY(-3px);
+  }
+  
+  h2 {
+    font-size: vars.$font-size-xl;
+    font-weight: 600;
+    margin-bottom: vars.$spacing-2;
+    color: vars.$text-color;
+  }
+  
+  p {
+    color: vars.$light-text;
+    margin-bottom: 0;
+  }
+} 

@@ -1,0 +1,67 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// User model for authentication
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  name      String?
+  role      String   @default("USER")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  packages  Package[]
+}
+
+// Package model for postal items
+model Package {
+  id            String    @id @default(uuid())
+  trackingNumber String   @unique
+  status        String    @default("PENDING")
+  weight        Float
+  description   String?
+  sender        User      @relation(fields: [senderId], references: [id])
+  senderId      String
+  fromAddress   Address   @relation("fromAddress", fields: [fromAddressId], references: [id])
+  fromAddressId String
+  toAddress     Address   @relation("toAddress", fields: [toAddressId], references: [id])
+  toAddressId   String
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  deliveredAt   DateTime?
+  events        TrackingEvent[]
+}
+
+// Address model for sender and recipient addresses
+model Address {
+  id           String    @id @default(uuid())
+  street       String
+  city         String
+  state        String
+  postalCode   String
+  country      String
+  fromPackages Package[] @relation("fromAddress")
+  toPackages   Package[] @relation("toAddress")
+}
+
+// TrackingEvent model for package tracking history
+model TrackingEvent {
+  id          String    @id @default(uuid())
+  packageId   String
+  package     Package   @relation(fields: [packageId], references: [id])
+  status      String
+  location    String?
+  description String?
+  timestamp   DateTime  @default(now())
+}

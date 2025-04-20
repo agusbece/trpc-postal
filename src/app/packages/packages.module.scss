@@ -1,0 +1,107 @@
+@import '../../styles/variables.scss';
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-4;
+}
+
+.backLink {
+  display: inline-block;
+  margin-bottom: $spacing-6;
+  color: $primary-color;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.title {
+  font-size: $font-size-4xl;
+  font-weight: 700;
+  margin-bottom: $spacing-8;
+  color: $text-color;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: $spacing-6;
+}
+
+.createButton {
+  padding: $spacing-2 $spacing-4;
+  background-color: $primary-color;
+  color: white;
+  border: none;
+  border-radius: $border-radius-md;
+  font-weight: 500;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: $primary-hover;
+  }
+}
+
+.loadingMessage, .errorMessage, .noPackages {
+  text-align: center;
+  padding: $spacing-8;
+}
+
+.errorMessage {
+  color: $danger;
+  border: 1px solid $danger;
+  border-radius: $border-radius-md;
+  background-color: rgba($danger, 0.1);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  
+  th, td {
+    padding: $spacing-3;
+    text-align: left;
+    border-bottom: 1px solid $border-color;
+  }
+  
+  th {
+    font-weight: 600;
+    background-color: $light-bg;
+  }
+  
+  tr:hover {
+    background-color: $hover-bg;
+  }
+}
+
+.actionButtons {
+  display: flex;
+  gap: $spacing-2;
+}
+
+.actionButton {
+  padding: $spacing-1 $spacing-2;
+  background-color: $secondary-color;
+  color: white;
+  border: none;
+  border-radius: $border-radius-sm;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: $secondary-hover;
+  }
+}
+
+.deleteButton {
+  padding: $spacing-1 $spacing-2;
+  background-color: $danger;
+  color: white;
+  border: none;
+  border-radius: $border-radius-sm;
+  cursor: pointer;
+  
+  &:hover {
+    opacity: 0.9;
+  }
+} 
