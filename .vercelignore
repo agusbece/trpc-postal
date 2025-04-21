@@ -1,0 +1,9 @@
+# Ignore everything except prisma directory
+!prisma/
+
+# Also don't ignore these files as they're needed
+!package.json
+!package-lock.json
+!tsconfig.json
+!next.config.mjs
+!.eslintrc.json 
