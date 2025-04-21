@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { trpc } from "../utils/trpc";
 import Link from "next/link";
 import styles from "./packages.module.scss";
