@@ -4,15 +4,31 @@ import { trpc } from "../utils/trpc";
 import Link from "next/link";
 import styles from "./packages.module.scss";
 
+interface Address {
+  street: string;
+  city: string;
+  state: string;
+  zipCode: string;
+  country: string;
+}
+
+interface PackageEvent {
+  id: string;
+  status: string;
+  location: string;
+  timestamp: string | Date;
+  details?: string;
+}
+
 interface Package {
   id: string;
   trackingNumber: string;
   status: string;
   weight: number;
   createdAt: string | Date;
-  fromAddress: any;
-  toAddress: any;
-  events: any[];
+  fromAddress: Address;
+  toAddress: Address;
+  events: PackageEvent[];
   description?: string;
 }
 
