@@ -11,8 +11,6 @@ generator client {
 datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
-  directUrl = env("DATABASE_URL")
-  extensions = [libsql]
 }
 
 // User model for authentication
