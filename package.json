@@ -32,6 +32,8 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.3.1",
+    "file-loader": "^6.2.0",
+    "ignore-loader": "^0.1.2",
     "prisma": "^6.6.0",
     "sass": "^1.86.3",
     "ts-node": "^10.9.2",
