@@ -4,34 +4,6 @@ import { trpc } from "../utils/trpc";
 import Link from "next/link";
 import styles from "./packages.module.scss";
 
-interface Address {
-  street: string;
-  city: string;
-  state: string;
-  zipCode: string;
-  country: string;
-}
-
-interface PackageEvent {
-  id: string;
-  status: string;
-  location: string;
-  timestamp: string | Date;
-  details?: string;
-}
-
-interface Package {
-  id: string;
-  trackingNumber: string;
-  status: string;
-  weight: number;
-  createdAt: string | Date;
-  fromAddress: Address;
-  toAddress: Address;
-  events: PackageEvent[];
-  description?: string;
-}
-
 export default function PackagesPage() {
   const packagesQuery = trpc.package.getAll.useQuery();
 
@@ -76,7 +48,7 @@ export default function PackagesPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  {packagesQuery.data.map((pkg: Package) => (
+                  {packagesQuery.data.map((pkg) => (
                     <tr key={pkg.id}>
                       <td>{pkg.trackingNumber}</td>
                       <td>{pkg.status}</td>

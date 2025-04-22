@@ -4,14 +4,6 @@ import { trpc } from "../utils/trpc";
 import Link from "next/link";
 import styles from "./users.module.scss";
 
-interface User {
-  id: string;
-  name: string;
-  email: string;
-  role: string;
-  createdAt: string | Date;
-}
-
 export default function UsersPage() {
   const usersQuery = trpc.user.getAll.useQuery();
 
@@ -56,9 +48,9 @@ export default function UsersPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  {usersQuery.data.map((user: User) => (
+                  {usersQuery.data.map((user) => (
                     <tr key={user.id}>
-                      <td>{user.name}</td>
+                      <td>{user.name || 'N/A'}</td>
                       <td>{user.email}</td>
                       <td>{user.role}</td>
                       <td>{new Date(user.createdAt).toLocaleString()}</td>
